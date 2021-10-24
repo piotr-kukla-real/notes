@@ -1,0 +1,5 @@
+/node_modules
+/build
+.env
+my-notes.txt
+react-app-env.d.ts
