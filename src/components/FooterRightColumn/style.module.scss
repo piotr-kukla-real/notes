@@ -1,0 +1,42 @@
+@use 'utils/variables';
+@use 'utils/breakpoints';
+
+.rightColumn {
+  align-self: center;
+}
+
+.linksList {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  @media (max-width: breakpoints.$md) {
+    justify-content: center;
+  }
+}
+
+.link {
+  display: block;
+  color: inherit;
+  transition: color 0.3s, outline-color 0.3s;
+  padding: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  outline: 1px solid;
+  outline-color: transparent;
+
+  &:focus-visible {
+    outline-color: variables.$secondary-dark;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: variables.$secondary-dark;
+  }
+
+  svg {
+    display: block;
+    font-size: 30px;
+  }
+}

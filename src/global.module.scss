@@ -9,6 +9,7 @@
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   background: variables.$bg-app;
+  word-wrap: break-word;
 }
 
 :global {
@@ -16,5 +17,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+  .main {
+    flex-grow: 1;
   }
 }

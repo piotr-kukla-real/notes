@@ -1,0 +1,20 @@
+@use 'utils/variables';
+@use 'utils/breakpoints';
+
+.container {
+  background-color: variables.$primary;
+  border-radius: variables.$radius-2;
+  box-shadow: variables.$shadow-2;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 85px;
+  row-gap: 20px;
+  padding: 14px 0;
+
+  @media (max-width: breakpoints.$md) {
+    flex-direction: column;
+  }
+}
