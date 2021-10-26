@@ -10,3 +10,11 @@ body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   background: variables.$bg-app;
 }
+
+:global {
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}

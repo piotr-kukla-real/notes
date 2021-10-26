@@ -21,6 +21,12 @@ const theme = createTheme({
       xl: 960,
     },
   },
+  typography: {
+    h1: {
+      fontSize: '2.2rem',
+      fontWeight: 400,
+    },
+  },
   props: {
     MuiTextField: {
       variant: 'outlined',

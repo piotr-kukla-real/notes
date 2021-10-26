@@ -1,0 +1,34 @@
+@use 'utils/variables';
+@use 'utils/breakpoints';
+
+.container {
+  background-color: variables.$primary;
+  border-radius: variables.$radius-1;
+  box-shadow: variables.$shadow-2;
+  position: sticky;
+  top: 0px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  justify-content: center;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+}
+
+.title {
+  @media (max-width: breakpoints.$sm) {
+    display: none;
+  }
+}
