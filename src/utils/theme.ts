@@ -1,6 +1,14 @@
 import { createTheme } from '@material-ui/core/styles';
 
 const shadow1 = '0px 1px 2px 1px hsla(0, 0%, 0%, 0.25)';
+const transitionOptions = '250ms cubic-bezier(0.4, 0, 0.2, 1)';
+const focusVisible = {
+  outline: '2px solid transparent',
+  transition: `outline-color ${transitionOptions}, background-color ${transitionOptions}, box-shadow ${transitionOptions}`,
+  '&.Mui-focusVisible': {
+    outlineColor: 'rgba(0, 0, 0, 0.5)',
+  },
+};
 
 const theme = createTheme({
   palette: {
@@ -38,6 +46,12 @@ const theme = createTheme({
       color: 'secondary',
       disableFocusRipple: true,
     },
+    MuiFab: {
+      disableFocusRipple: true,
+    },
+    MuiIconButton: {
+      disableFocusRipple: true,
+    },
   },
   overrides: {
     MuiOutlinedInput: {
@@ -50,12 +64,32 @@ const theme = createTheme({
     MuiButton: {
       contained: {
         boxShadow: shadow1,
+        outline: focusVisible.outline,
+        transition: focusVisible.transition,
         '&:hover': {
           boxShadow: shadow1,
         },
+        '&:active': {
+          boxShadow: 'none',
+        },
         '&.Mui-focusVisible': {
           boxShadow: shadow1,
+          outlineColor: focusVisible['&.Mui-focusVisible'].outlineColor,
         },
+      },
+    },
+    MuiFab: {
+      root: {
+        ...focusVisible,
+        '&:active': {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiIconButton: {
+      root: {
+        ...focusVisible,
+        boxShadow: shadow1,
         '&:active': {
           boxShadow: 'none',
         },

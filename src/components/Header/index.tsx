@@ -1,5 +1,6 @@
 import { Container, Typography } from '@material-ui/core';
 import { EventNote } from '@material-ui/icons';
+import OpenAddNoteBtn from 'components/OpenAddNoteBtn';
 import Search from 'components/Search';
 import styles from './style.module.scss';
 
@@ -13,6 +14,7 @@ const Header: React.FC = () => (
         </Typography>
       </div>
       <Search />
+      <OpenAddNoteBtn />
     </header>
   </Container>
 );
