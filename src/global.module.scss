@@ -11,3 +11,12 @@ body {
   background: variables.$bg-app;
   word-wrap: break-word;
 }
+
+:global {
+  .dialog .MuiPaper-root {
+    max-height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: variables.$primary;
+  }
+}

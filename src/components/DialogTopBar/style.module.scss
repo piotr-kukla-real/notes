@@ -1,0 +1,38 @@
+@use 'utils/variables';
+
+.dialogTopBar {
+  position: relative;
+  padding: 14px 0;
+}
+
+.dialogHeader {
+  width: fit-content;
+  margin: 0 auto;
+  max-width: calc(100% - 110px);
+}
+
+.btn {
+  background-color: variables.$red;
+  width: 35px;
+  height: 35px;
+  padding: 2px;
+  color: inherit;
+  position: absolute;
+  right: 11px;
+  top: 11px;
+
+  &:hover {
+    background-color: variables.$red-dark;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (hover: none) {
+    &:hover {
+      background-color: variables.$red;
+    }
+  }
+}
