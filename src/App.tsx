@@ -1,11 +1,8 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Home from 'components/Home';
 
 const App: React.FC = () => (
   <div className="app">
-    <Header />
-    <main className="main"></main>
-    <Footer />
+    <Home />
   </div>
 );
 

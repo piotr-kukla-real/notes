@@ -11,14 +11,3 @@ body {
   background: variables.$bg-app;
   word-wrap: break-word;
 }
-
-:global {
-  .app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .main {
-    flex-grow: 1;
-  }
-}
