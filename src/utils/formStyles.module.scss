@@ -1,0 +1,35 @@
+@use 'utils/breakpoints';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 20px 40px;
+
+  @media (max-width: breakpoints.$sm) {
+    padding: 20px 10px;
+  }
+}
+
+.formControl {
+  :global {
+    .MuiInputBase-root {
+      font-size: 1.125rem;
+    }
+    .MuiFormLabel-root {
+      font-size: 1.125rem;
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+      transform: translate(14px, -8px) scale(0.8);
+    }
+    .MuiFormHelperText-root {
+      font-size: 1rem;
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+}
+
+.submitBtn {
+  font-size: 1.125rem;
+}
