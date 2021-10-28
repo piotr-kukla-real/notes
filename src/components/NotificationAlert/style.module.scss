@@ -1,0 +1,32 @@
+@use 'utils/variables';
+@use 'utils/breakpoints';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 5px;
+  gap: 8px;
+  max-width: 350px;
+  box-shadow: variables.$shadow-3;
+
+  @media (max-width: breakpoints.$sm) {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.message {
+  min-width: 1px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}

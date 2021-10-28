@@ -5,6 +5,7 @@ import { ThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import theme from 'utils/theme';
 import { RoutesProvider } from 'components/Routes';
 import { NotesProvider } from 'components/Notes';
+import { NotificationProvider } from 'components/Notification';
 
 const root = document.getElementById('root');
 
@@ -12,9 +13,11 @@ ReactDOM.render(
   <StylesProvider injectFirst>
     <ThemeProvider theme={theme}>
       <RoutesProvider>
-        <NotesProvider>
-          <App />
-        </NotesProvider>
+        <NotificationProvider>
+          <NotesProvider>
+            <App />
+          </NotesProvider>
+        </NotificationProvider>
       </RoutesProvider>
     </ThemeProvider>
   </StylesProvider>,

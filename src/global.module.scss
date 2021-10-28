@@ -1,4 +1,5 @@
 @use 'utils/variables';
+@use 'utils/breakpoints';
 
 * {
   margin: 0;
@@ -18,5 +19,21 @@ body {
     width: 100%;
     margin: 0px;
     background-color: variables.$primary;
+  }
+
+  .snackbar {
+    left: 50%;
+    right: auto;
+    top: 10px;
+    bottom: auto;
+    transform: translate(-50%);
+    max-width: 100%;
+
+    @media (max-width: breakpoints.$sm) {
+      left: 8px;
+      right: 8px;
+      top: 10px;
+      transform: none;
+    }
   }
 }
