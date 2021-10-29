@@ -124,7 +124,7 @@ interface Notify {
   key: number;
 }
 
-interface Context {
+export interface Context {
   (options?: Options): void;
 }
 
