@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-const useForm = <T extends InitValues>(initValues: T) => {
-  const [values, setValues] = useState(() => initValues);
+const useForm = <T extends InitValues>(initValues: T | (() => T)) => {
+  const [values, setValues] = useState(initValues);
+
   const handleChange: HandleChange = (e) => {
     setValues((prev) => ({
       ...prev,
@@ -9,9 +10,10 @@ const useForm = <T extends InitValues>(initValues: T) => {
     }));
   };
 
-  const reset = () => setValues(initValues);
+  const handleValues = (newValues: Partial<T>) =>
+    setValues((prev) => ({ ...prev, ...newValues }));
 
-  return { values, handleChange, reset };
+  return { values, handleChange, handleValues };
 };
 
 interface InitValues {
