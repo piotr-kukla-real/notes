@@ -36,4 +36,44 @@ body {
       transform: none;
     }
   }
+
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: variables.$secondary;
+  }
+
+  .MuiFab-root,
+  .MuiIconButton-root,
+  .MuiButton-root {
+    outline: 2px solid transparent;
+    transition: 250ms variables.$timing-function-1;
+    transition-property: background-color, box-shadow, outline-color;
+
+    &.Mui-focusVisible {
+      outline-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .MuiFab-root {
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .MuiButton-root {
+    &.Mui-focusVisible {
+      box-shadow: variables.$shadow-1;
+    }
+  }
+
+  .MuiIconButton-root,
+  .MuiButton-root {
+    &,
+    &:hover {
+      box-shadow: variables.$shadow-1;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
 }
