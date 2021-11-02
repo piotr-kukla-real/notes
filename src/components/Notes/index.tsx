@@ -32,6 +32,10 @@ export const NotesProvider: React.FC = ({ children }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
+  const findNote = (id: number) => {
+    return notes.find((item) => item.id === id);
+  };
+
   const filteredNotes = search
     ? notes.filter((item) => search.test(item.title) || search.test(item.note))
     : notes;
@@ -66,6 +70,7 @@ export const NotesProvider: React.FC = ({ children }) => {
     dispatch,
     changePage,
     searchNotes,
+    findNote,
     info: {
       currentPage,
       maxPage,
@@ -91,6 +96,7 @@ export interface Context {
   dispatch: React.Dispatch<Action>;
   changePage: ChangePage;
   searchNotes: SearchNotes;
+  findNote: FindNote;
   info: Info;
 }
 
@@ -100,6 +106,10 @@ interface ChangePage {
 
 interface SearchNotes {
   (searchText: string): void;
+}
+
+interface FindNote {
+  (id: number): Note | undefined;
 }
 
 interface Info {
