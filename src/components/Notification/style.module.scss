@@ -1,0 +1,17 @@
+@use 'utils/breakpoints';
+
+.snackbar {
+  left: 50%;
+  right: auto;
+  top: 10px;
+  bottom: auto;
+  transform: translate(-50%);
+  max-width: 100%;
+
+  @media (max-width: breakpoints.$sm) {
+    left: 8px;
+    right: 8px;
+    top: 10px;
+    transform: none;
+  }
+}

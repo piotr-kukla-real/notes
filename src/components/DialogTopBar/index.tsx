@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 const DialogTopBar: React.FC<Props> = ({ header }) => {
   return (
     <div className={styles.dialogTopBar}>
-      <Typography className={styles.dialogHeader} variant="h3" noWrap>
+      <Typography className={styles.dialogHeader} variant="h2" noWrap>
         {header}
       </Typography>
       <IconButton className={styles.btn} onClick={closeDialog}>

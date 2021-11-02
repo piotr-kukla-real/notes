@@ -3,6 +3,7 @@ import { useEffect, useState, createContext, useContext } from 'react';
 import { Snackbar } from '@material-ui/core';
 import NotificationAlert from 'components/NotificationAlert';
 import { CheckRounded, ErrorOutline, Delete } from '@material-ui/icons';
+import styles from './style.module.scss';
 
 const lightText: React.CSSProperties['color'] = 'hsl(0, 0%, 84%)';
 
@@ -83,7 +84,7 @@ export const NotificationProvider: React.FC = ({ children }) => {
   return (
     <>
       <Snackbar
-        className="snackbar"
+        className={styles.snackbar}
         key={displayNotify && displayNotify.key}
         open={open}
         onClose={handleClose}
