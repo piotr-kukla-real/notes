@@ -1,19 +1,41 @@
-import { ButtonBase, Card, Grid, Typography } from '@material-ui/core';
+import { ButtonBase, Grid, Typography } from '@material-ui/core';
+import ListItemMenu, {
+  Props as ListItemMenuProps,
+} from 'components/ListItemMenu';
 import type { Note } from 'components/Notes';
 import { useRoutes } from 'components/Routes';
+import { useState } from 'react';
 import styles from './style.module.scss';
 
 const ListItem: React.FC<Props> = ({ item }) => {
+  const [state, setState] = useState<ListItemMenuProps['state']>(undefined);
+
+  const onContextMenu = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    e.preventDefault();
+    setState({
+      left: e.clientX - 2,
+      top: e.clientY - 2,
+    });
+  };
+
+  const handleClose = () => setState(undefined);
+
   const { title, note, id, date } = item;
 
   const { pushState } = useRoutes()!;
 
-  const showNote = () => pushState('/note', id);
+  const onClick = () => {
+    pushState('/note', id);
+  };
 
   return (
     <Grid className={styles.gridItem} component="li" item>
-      <ButtonBase className={styles.buttonBase} onClick={showNote}>
-        <Card className={styles.card} variant="outlined">
+      <div className={styles.itemWrapper}>
+        <ButtonBase
+          className={styles.cardButton}
+          onClick={onClick}
+          onContextMenu={onContextMenu}
+        >
           <Typography className={styles.title} variant="h3" noWrap>
             {title}
           </Typography>
@@ -27,13 +49,14 @@ const ListItem: React.FC<Props> = ({ item }) => {
           >
             {date}
           </Typography>
-        </Card>
-      </ButtonBase>
+        </ButtonBase>
+        <ListItemMenu id={id} state={state} handleClose={handleClose} />
+      </div>
     </Grid>
   );
 };
 
-interface Props {
+export interface Props {
   item: Note;
 }
 
